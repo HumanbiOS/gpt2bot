@@ -71,6 +71,6 @@ async def get_response(user_id, prompt):
 
     # Generate bot messages
     loop = asyncio.get_running_loop() 
-    bot_messages = await loop.run_in_executor(None, get, history) 
+    bot_message = await loop.run_in_executor(None, get, history) 
     turn['bot_messages'].append(bot_message)
     return bot_message
