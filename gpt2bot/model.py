@@ -152,7 +152,8 @@ def load_model(target_folder_name, config):
 def main():
     # Script arguments can include path of the config
     arg_parser = argparse.ArgumentParser()
-    arg_parser.add_argument('--config', type=str, default="chatbot.cfg")
+    path = os.path.dirname(os.path.abspath(__file__))
+    arg_parser.add_argument('--config', type=str, default=os.path.join(path, "chatbot.cfg"))
     args = arg_parser.parse_args()
 
     # Read the config

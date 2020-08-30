@@ -5,13 +5,15 @@ import argparse
 import logging
 import asyncio
 import random
+import os
 
 from .model import download_model_folder, download_reverse_model_folder, load_model
 from .decoder import generate_response
 
+path = os.path.dirname(os.path.abspath(__file__))
 # Script arguments can include path of the config
 arg_parser = argparse.ArgumentParser()
-arg_parser.add_argument('--config', type=str, default="gpt2bot/chatbot.cfg")
+arg_parser.add_argument('--config', type=str, default=os.path.join(path, "chatbot.cfg"))
 args = arg_parser.parse_args()
 
 # Read the config
