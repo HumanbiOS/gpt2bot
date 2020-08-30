@@ -3,7 +3,9 @@ from sanic import Sanic
 import asyncio
 import time
 
-from . import get_response
+from gpt2bot import get_response
+
+app = Sanic(name="HumanBios-AI")
 
 
 @app.route('/api/get_response', methods=['POST'])

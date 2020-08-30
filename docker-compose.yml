@@ -6,7 +6,7 @@ services:
     image: humanbios-ai
     restart: unless-stopped
     volumes:
-    - ./log:/app/log
+    - ./models:/app/usr/src/models
 
 networks:
   default:
