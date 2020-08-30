@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  gpt:
+    container_name: humanbios-ai
+    image: humanbios-ai
+    restart: unless-stopped
+    volumes:
+    - ./log:/app/log
+
+networks:
+  default:
+    external:
+      name: caddynet

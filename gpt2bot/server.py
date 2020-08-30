@@ -1,0 +1,21 @@
+from sanic.response import json
+from sanic import Sanic
+import asyncio
+import time
+
+from . import get_response
+
+
+@app.route('/api/get_response', methods=['POST'])
+async def api_get_response(request):
+    data = request.json
+    resp = await get_response(data['user_id'], data['text']) 
+    return json({
+        "status": 200,
+        "timestamp": time.monotonic(),
+        "text": resp
+    })
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)
