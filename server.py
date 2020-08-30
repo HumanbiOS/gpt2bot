@@ -1,8 +1,8 @@
 from sanic.response import json
 from sanic import Sanic
+import ujson as js
 import asyncio
 import time
-
 from gpt2bot import get_response
 
 app = Sanic(name="HumanBios-AI")
@@ -10,7 +10,7 @@ app = Sanic(name="HumanBios-AI")
 
 @app.route('/api/get_response', methods=['POST'])
 async def api_get_response(request):
-    data = request.json
+    data = js.loads(request.json)
     resp = await get_response(data['user_id'], data['text']) 
     return json({
         "status": 200,
