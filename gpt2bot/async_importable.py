@@ -50,10 +50,6 @@ async def get_response(user_id, prompt):
         USERS["turns"][user_id] = []
         turns = USERS["turns"][user_id] 
  
-    if prompt.lower() == 'bye' or prompt.lower() == 'quit':
-        USERS["turns"][user_id] = []
-        return "EXIT" 
-        
     # A single turn is a group of user messages and bot responses right after
     turn = {
         'user_messages': [],
